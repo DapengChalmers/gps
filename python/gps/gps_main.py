@@ -1,5 +1,7 @@
 """ This file defines the main object that runs experiments. """
 
+import matplotlib
+matplotlib.use('TKAgg')
 import matplotlib as mpl
 
 mpl.use('Qt4Agg')
@@ -155,9 +157,9 @@ class GPSMain(object):
         """
         target_positions = self.algorithm._hyperparams['target_end_effector']
         algorithm_file = self._data_files_dir + 'algorithm_itr_%02d.pkl' % itr
-        print 'Loading algorithm file.'
+        print ('Loading algorithm file.')
         self.algorithm = self.data_logger.unpickle(algorithm_file)
-        print 'Done loading algorithm file.'
+        print ('Done loading algorithm file.')
         if self.algorithm is None:
             print("Error: cannot find '%s.'" % algorithm_file)
             os._exit(1) # called instead of sys.exit(), since t
@@ -177,7 +179,7 @@ class GPSMain(object):
             cur_samples = traj_sample_lists[cond]
             dists = compute_distance(target_position, cur_samples)
             all_dists.append(dists)
-        print [np.mean(dist) for dist in all_dists]
+        print([np.mean(dist) for dist in all_dists])
 
         for cond in range(len(self._train_idx)):
             for i in range(N):

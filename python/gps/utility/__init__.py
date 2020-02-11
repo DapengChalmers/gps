@@ -1,1 +1,1 @@
-from color_print import color_string, ColorLogger
+from utility.color_print import color_string, ColorLogger

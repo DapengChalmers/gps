@@ -446,7 +446,7 @@ class GPSTrainingGUI(object):
         image = sp.misc.imresize(image, (IMAGE_SIZE, IMAGE_SIZE, 3))
         self._fp_visualizer.imshow(image)
 
-        print 'Feature Points:', feature_points
+        print('Feature Points:', feature_points)
 
         fp_x = []
         fp_y = []
@@ -464,8 +464,8 @@ class GPSTrainingGUI(object):
         fp_x = np.concatenate(fp_x)
         fp_y = np.concatenate(fp_y)
         colors = np.concatenate(colors)
-        print 'FP_X:', fp_x
-        print 'FP_Y:', fp_y
+        print('FP_X:', fp_x)
+        print('FP_Y:', fp_y)
         for i in range(N*len(feature_points)):
             self._fp_visualizer.scatter(fp_x[i], fp_y[i], color=colors[i])
 

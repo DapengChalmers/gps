@@ -40,7 +40,7 @@ class Timer(object):
         fname, lineno, method, _ = tb.extract_stack()[-2]  # Get caller
         _, fname = os.path.split(fname)
         id_str = '%s:%s' % (fname, method)
-        print 'TIMER:'+color_string('%s: %s (Elapsed: %fs)' % (id_str, self.message, new_time), color='gray')
+        print('TIMER:'+color_string('%s: %s (Elapsed: %fs)' % (id_str, self.message, new_time), color='gray'))
 
 
 def mkdir_p(path):
@@ -246,9 +246,9 @@ def load_final_algorithm(data_files_dir):
     algorithm_prefix = 'algorithm_itr_'
     algorithm_filenames = [f for f in data_filenames if f.startswith(algorithm_prefix)]
     current_algorithm = sorted(algorithm_filenames, reverse=True)[0]
-    print 'Loading algorithm file.'
+    print('Loading algorithm file.')
     algorithm = DataLogger().unpickle(data_files_dir+current_algorithm)
-    print 'Done loading algorithm file.'
+    print('Done loading algorithm file.')
     if algorithm is None:
         print("Error: cannot find '%s.'" % current_algorithm)
         os._exit(1) # called instead of sys.exit(), since t

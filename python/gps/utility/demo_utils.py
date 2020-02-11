@@ -85,7 +85,7 @@ def get_demos(gps):
       gps.demo_gen = GenDemo(gps._hyperparams)
       gps.demo_gen.generate(demo_file, gps.agent)
       demos = gps.data_logger.unpickle(demo_file)
-    print 'Num demos:', demos['demoX'].shape[0]
+    print('Num demos:', demos['demoX'].shape[0])
     gps._hyperparams['algorithm']['init_traj_distr']['init_demo_x'] = np.mean(demos['demoX'], 0)
     gps._hyperparams['algorithm']['init_traj_distr']['init_demo_u'] = np.mean(demos['demoU'], 0)
     gps.algorithm = gps._hyperparams['algorithm']['type'](gps._hyperparams['algorithm'])

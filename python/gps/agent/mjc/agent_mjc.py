@@ -5,7 +5,7 @@ import numpy as np
 try:
     import imageio
 except ImportError:
-    print 'imageio not found'
+    print('imageio not found')
     imageio = None
 
 import mjcpy
@@ -252,7 +252,7 @@ class AgentMuJoCo(Agent):
         for t in range(self.T):
             if 'screenshot_pause' in self._hyperparams:
                 if t in self._hyperparams['screenshot_pause']:
-                    print 'Pausing for screenshot!'
+                    print('Pausing for screenshot!')
                     import pdb; pdb.set_trace()
             X_t = new_sample.get_X(t=t)
             obs_t = new_sample.get_obs(t=t)
@@ -441,7 +441,7 @@ class AgentMuJoCo(Agent):
         return img
 
     def __getstate__(self):
-        print 'Pickling agent'
+        print('Pickling agent')
         return {}
 
     def __setstate__(self, state):

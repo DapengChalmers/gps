@@ -138,7 +138,7 @@ def visualize_samples(gps, N, agent_config, experiment='reacher'):
     agent = agent_config['type'](agent_config)
     ioc_conditions = [np.array([np.log10(agent_config['density_range'][i]), 0.])
                         for i in xrange(M)]
-    print "Number of testing conditions: %d" % M
+    print("Number of testing conditions: %d" % M)
 
     if 'record_gif' in gps._hyperparams:
         gif_config = gps._hyperparams['record_gif']
